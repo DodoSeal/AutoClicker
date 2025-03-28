@@ -1,0 +1,33 @@
+{
+  "name": "autoclicker",
+  "version": "1.0.0",
+  "description": "A custom autoclicker application that is more stable than OP Auto Clicker.",
+  "license": "ISC",
+  "author": "Max McDaniel",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "tailwind": "npx @tailwindcss/cli -i ./src/html/index.css -o ./src/html/output.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.17",
+    "@tailwindcss/forms": "^0.5.10",
+    "electron-squirrel-startup": "^1.0.1",
+    "robotjs": "^0.6.0",
+    "tailwindcss": "^4.0.17"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.8.0",
+    "@electron-forge/maker-deb": "^7.8.0",
+    "@electron-forge/maker-rpm": "^7.8.0",
+    "@electron-forge/maker-squirrel": "^7.8.0",
+    "@electron-forge/maker-zip": "^7.8.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.8.0",
+    "@electron-forge/plugin-fuses": "^7.8.0",
+    "@electron/fuses": "^1.8.0",
+    "electron": "^35.1.2"
+  }
+}
