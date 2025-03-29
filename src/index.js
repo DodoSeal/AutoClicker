@@ -1,4 +1,6 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
+const path = require("path");
+const robotjs = require('@hurdlegroup/robotjs');
 
 const createWindow = () => {
     const window = new BrowserWindow({
@@ -9,7 +11,10 @@ const createWindow = () => {
         minHeight: 300,
         maxHeight: 300,
         autoHideMenuBar: true,
-        alwaysOnTop: true
+        alwaysOnTop: true,
+        webPreferences: {
+            preload: path.join(__dirname, "preload.js")
+        }
     });
 
     // window.loadFile("./src/html/index.html");
@@ -17,5 +22,9 @@ const createWindow = () => {
 };
 
 app.on('ready', () => {
+    ipcMain.on('click-mouse', (_event, button) => {
+        robotjs.mouseClick(button);
+    });
+
     createWindow();
 });
